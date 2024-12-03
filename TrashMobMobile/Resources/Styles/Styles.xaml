@@ -3,6 +3,7 @@
 
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:controls="clr-namespace:TrashMobMobile.Controls"
                     xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps">
 
     <Style TargetType="ActivityIndicator">
@@ -295,6 +296,13 @@
                 Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />
         <Setter Property="RefreshControlColor"
                 Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray200}}" />
+    </Style>
+
+    <Style TargetType="controls:TMMap">
+        <Setter Property="IsShowingUser" Value="True" />
+        <Setter Property="Margin" Value="10" />
+        <Setter Property="HeightRequest" Value="300" />
+        <Setter Property="IsScrollEnabled" Value="True" />
     </Style>
 
     <Style TargetType="maps:Map">

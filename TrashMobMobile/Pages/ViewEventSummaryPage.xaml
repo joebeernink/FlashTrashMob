@@ -88,22 +88,22 @@
                         </CollectionView.ItemTemplate>
                     </CollectionView>
 
-                    <maps:Map x:Name="pickupLocationsMap"
+                    <controls:TMMap x:Name="pickupLocationsMap"
                               ItemsSource="{Binding PickupLocations}"
                               IsVisible="{Binding Source={x:Reference viewMap}, Path=IsChecked}"
                               Grid.Row="4"
                               Grid.ColumnSpan="2">
-                        <maps:Map.ItemTemplate>
+                        <controls:TMMap.ItemTemplate>
                             <DataTemplate x:DataType="viewModels:PickupLocationViewModel">
                                 <controls:CustomPin Location="{Binding Address.Location}"
                                           Address="{Binding Address.StreetAddress}"
                                           Label="{Binding Id}"
                                           AutomationId="{Binding Id}"
-                                          ImageSource="eventupcoming"
+                                          ImageSource="{Binding Address.IconFile}"
                                           InfoWindowClicked="Pin_InfoWindowClicked" />
                             </DataTemplate>
-                        </maps:Map.ItemTemplate>
-                    </maps:Map>
+                        </controls:TMMap.ItemTemplate>
+                    </controls:TMMap>
 
                     <Button Text="Edit Event Summary" Command="{Binding EditEventSummaryCommand}"
                             IsVisible="{Binding EnableEditEventSummary}" Grid.Row="5" Grid.Column="0" Margin="10" />

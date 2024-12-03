@@ -43,10 +43,10 @@
                     </HorizontalStackLayout>
                 </Grid>
 
-                <maps:Map x:Name="eventsMap"
+                <controls:TMMap x:Name="eventsMap"
                           ItemsSource="{Binding Events}"
                           IsVisible="{Binding Source={x:Reference viewMap}, Path=IsChecked}">
-                    <maps:Map.ItemTemplate>
+                    <controls:TMMap.ItemTemplate>
                         <DataTemplate x:DataType="viewModels:EventViewModel">
                             <controls:CustomPin Location="{Binding Address.Location}"
                                       Address="{Binding Address.StreetAddress}"
@@ -54,8 +54,8 @@
                                       AutomationId="{Binding Id}"
                                       InfoWindowClicked="Pin_InfoWindowClicked" />
                         </DataTemplate>
-                    </maps:Map.ItemTemplate>
-                </maps:Map>
+                    </controls:TMMap.ItemTemplate>
+                </controls:TMMap>
 
                 <CollectionView x:Name="EventsCollection"
                                 ItemsSource="{Binding Events}"

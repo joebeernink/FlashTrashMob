@@ -169,17 +169,17 @@
                     HorizontalTextAlignment="Center"
                     Margin="5" />
 
-                <controls:CustomMap x:Name="eventLocationMap" ItemsSource="{Binding Events}" IsShowingUser="True" HeightRequest="400"
+                <controls:TMMap x:Name="eventLocationMap" ItemsSource="{Binding Events}" IsShowingUser="True" HeightRequest="400"
                           MapClicked="OnMapClicked">
-                    <maps:Map.ItemTemplate>
+                    <controls:TMMap.ItemTemplate>
                         <DataTemplate x:DataType="viewModels:EventViewModel">
                             <controls:CustomPin Location="{Binding Address.Location}"
                                       Address="{Binding Address.StreetAddress}"
-                                      ImageSource="eventupcoming"
+                                      ImageSource="{Binding Address.IconFile}"
                                       Label="{Binding Name}" />
                         </DataTemplate>
-                    </maps:Map.ItemTemplate>
-                </controls:CustomMap>
+                    </controls:TMMap.ItemTemplate>
+                </controls:TMMap>
 
                 <Grid RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*, *">
                     <VerticalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
@@ -280,11 +280,11 @@
                              Command="{Binding ListSelectedCommand}" />
                     </Grid>
 
-                    <maps:Map x:Name="litterImagesMap"
+                    <controls:TMMap x:Name="litterImagesMap"
                               Grid.Row="1"
                               ItemsSource="{Binding LitterImages}"
                               IsVisible="{Binding IsLitterReportMapSelected}">
-                        <maps:Map.ItemTemplate>
+                        <controls:TMMap.ItemTemplate>
                             <DataTemplate x:DataType="viewModels:LitterImageViewModel">
                                 <controls:CustomPin Location="{Binding Address.Location}"
                                           Address="{Binding Address.StreetAddress}"
@@ -293,8 +293,8 @@
                                           ImageSource="{Binding Address.IconFile}"
                                           InfoWindowClicked="Pin_InfoWindowClicked" />
                             </DataTemplate>
-                        </maps:Map.ItemTemplate>
-                    </maps:Map>
+                        </controls:TMMap.ItemTemplate>
+                    </controls:TMMap>
 
                     <CollectionView x:Name="LitterReportsCollection" Grid.Row="1"
                                     ItemsSource="{Binding EventLitterReports}"

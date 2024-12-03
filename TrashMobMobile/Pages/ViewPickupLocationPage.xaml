@@ -36,19 +36,19 @@
                 </Grid>
 
 
-                <maps:Map x:Name="pickupLocationsMap"
+                <controls:TMMap x:Name="pickupLocationsMap"
                           ItemsSource="{Binding PickupLocations}"
                           IsVisible="{Binding Source={x:Reference viewMap}, Path=IsChecked}">
-                    <maps:Map.ItemTemplate>
+                    <controls:TMMap.ItemTemplate>
                         <DataTemplate x:DataType="viewModels:PickupLocationViewModel">
                             <controls:CustomPin Location="{Binding Address.Location}"
                                       Address="{Binding Address.StreetAddress}"
                                       Label="{Binding Id}"
-                                      ImageSource="eventupcoming"
+                                      ImageSource="{Binding Address.IconFile}"
                                       AutomationId="{Binding Id}" />
                         </DataTemplate>
-                    </maps:Map.ItemTemplate>
-                </maps:Map>
+                    </controls:TMMap.ItemTemplate>
+                </controls:TMMap>
 
                 <Grid RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*, *">
                     <VerticalStackLayout Grid.Row="0" Grid.ColumnSpan="2">

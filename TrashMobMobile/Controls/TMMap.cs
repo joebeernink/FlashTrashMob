@@ -3,16 +3,16 @@
 using Microsoft.Maui.Controls.Maps;
 using Microsoft.Maui.Maps;
 
-public class CustomMap : Map
+public class TMMap : Map
 {
-    public CustomMap() : base() { }
+    public TMMap() : base() { }
 
-    public CustomMap(MapSpan initialMapSpan) : base(initialMapSpan) { }
+    public TMMap(MapSpan initialMapSpan) : base(initialMapSpan) { }
 
     #region Dependency/Bindable Properties
 
     public static readonly BindableProperty InitialMapSpanAndroidProperty = BindableProperty.Create(
-        "InitialMapSpanAndroid", typeof(MapSpan), typeof(CustomMap));
+        "InitialMapSpanAndroid", typeof(MapSpan), typeof(TMMap));
 
     #endregion
 

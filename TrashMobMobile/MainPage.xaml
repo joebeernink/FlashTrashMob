@@ -150,10 +150,10 @@
                    IsVisible="{Binding IsMapSelected}"
                    Margin="10, 0" />
 
-            <maps:Map x:Name="mainMap"
+            <controls:TMMap x:Name="mainMap"
                           IsVisible="{Binding IsMapSelected}"
                           ItemsSource="{Binding Addresses}">
-                <maps:Map.ItemTemplate>
+                <controls:TMMap.ItemTemplate>
                     <DataTemplate x:DataType="vm:AddressViewModel">
                         <controls:CustomPin Address="{Binding StreetAddress}"
                                       AutomationId="{Binding AutomationId}"                                      
@@ -162,8 +162,8 @@
                                       ImageSource="{Binding IconFile}"
                                       Location="{Binding Location}" />
                     </DataTemplate>
-                </maps:Map.ItemTemplate>
-            </maps:Map>
+                </controls:TMMap.ItemTemplate>
+            </controls:TMMap>
 
             <Label Text="Upcoming Events" 
                    FontSize="Medium" 

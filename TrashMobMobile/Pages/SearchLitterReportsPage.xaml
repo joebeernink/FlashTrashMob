@@ -39,21 +39,21 @@
                         <RadioButton Content="List" x:Name="viewList" FontSize="Micro" />
                     </HorizontalStackLayout>
 
-                    <maps:Map x:Name="litterImagesMap"
+                    <controls:TMMap x:Name="litterImagesMap"
                               Grid.Row="3"
                               ItemsSource="{Binding LitterImages}"
                               IsVisible="{Binding Source={x:Reference viewMap}, Path=IsChecked}">
-                        <maps:Map.ItemTemplate>
+                        <controls:TMMap.ItemTemplate>
                             <DataTemplate x:DataType="viewModels:LitterImageViewModel">
                                 <controls:CustomPin Location="{Binding Address.Location}"
                                           Address="{Binding Address.StreetAddress}"
                                           Label="{Binding Address.StreetAddress}"
                                           AutomationId="{Binding LitterReportId}"
-                                          ImageSource="litterreportnew"
+                                          ImageSource="{Binding Address.IconFile}"
                                           InfoWindowClicked="Pin_InfoWindowClicked" />
                             </DataTemplate>
-                        </maps:Map.ItemTemplate>
-                    </maps:Map>
+                        </controls:TMMap.ItemTemplate>
+                    </controls:TMMap>
 
                     <CollectionView x:Name="LitterReportsCollection" Grid.Row="4"
                                     ItemsSource="{Binding LitterReports}"

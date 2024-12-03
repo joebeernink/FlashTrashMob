@@ -67,12 +67,18 @@ public class CustomMapHandler : MapHandler
             return;
         }
 
-        if (VirtualView is not CustomMap map)
+        if (VirtualView is not TMMap map)
         {
             return;
         }
 
         var span = map.InitialMapSpanAndroid;
+
+        if (span == null)
+        {
+            return;
+        }
+
         var ne = new LatLng(span.Center.Latitude + span.LatitudeDegrees / 2,
             span.Center.Longitude + span.LongitudeDegrees / 2);
         var sw = new LatLng(span.Center.Latitude - span.LatitudeDegrees / 2,

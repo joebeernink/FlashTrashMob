@@ -47,11 +47,11 @@
                              Command="{Binding ListSelectedCommand}" />
                         </Grid>
 
-                        <maps:Map x:Name="litterImagesMap"
+                        <controls:TMMap x:Name="litterImagesMap"
                               Grid.Row="1"
                               ItemsSource="{Binding LitterImages}"
                               IsVisible="{Binding IsLitterReportMapSelected}">
-                            <maps:Map.ItemTemplate>
+                            <controls:TMMap.ItemTemplate>
                                 <DataTemplate x:DataType="viewModels:LitterImageViewModel">
                                     <controls:CustomPin Location="{Binding Address.Location}"
                                           Address="{Binding Address.StreetAddress}"
@@ -60,8 +60,8 @@
                                           ImageSource="{Binding Address.IconFile}"
                                           InfoWindowClicked="Pin_InfoWindowClicked" />
                                 </DataTemplate>
-                            </maps:Map.ItemTemplate>
-                        </maps:Map>
+                            </controls:TMMap.ItemTemplate>
+                        </controls:TMMap>
 
                         <CollectionView x:Name="LitterReportsCollection" Grid.Row="1"
                                     ItemsSource="{Binding EventLitterReports}"

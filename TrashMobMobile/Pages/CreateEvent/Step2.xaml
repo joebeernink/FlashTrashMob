@@ -16,49 +16,49 @@
                 HorizontalTextAlignment="Center"
                 Text="Click on the map to set the event location."
                 VerticalOptions="Center" />
-        <maps:Map x:Name="eventLocationMap"
+        <controls:TMMap x:Name="eventLocationMap"
                       ItemsSource="{Binding Events}"
                       MapClicked="OnMapClicked">
-            <maps:Map.ItemTemplate>
+            <controls:TMMap.ItemTemplate>
                 <DataTemplate x:DataType="viewModels:EventViewModel">
                     <controls:CustomPin Address="{Binding Address.StreetAddress}"
                                   Label="{Binding Name}"
-                                  ImageSource="eventupcoming"
+                                  ImageSource="{Binding Address.IconFile}"
                                   Location="{Binding Address.Location}" />
                 </DataTemplate>
-            </maps:Map.ItemTemplate>
-        </maps:Map>
+            </controls:TMMap.ItemTemplate>
+        </controls:TMMap>
         <Grid ColumnDefinitions="*, *"
                   RowDefinitions="Auto, Auto, Auto">
             <VerticalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
                 <Label Text="Address" Style="{StaticResource FieldLabel}" />
-                
-                    <Label FontSize="Micro"
+
+                <Label FontSize="Micro"
                                Text="{Binding EventViewModel.Address.StreetAddress}" />
 
             </VerticalStackLayout>
             <VerticalStackLayout Grid.Row="1" Grid.Column="0">
                 <Label Text="City" Style="{StaticResource FieldLabel}" />
-                
-                    <Label FontSize="Micro"
+
+                <Label FontSize="Micro"
                                Text="{Binding EventViewModel.Address.City}" />
 
             </VerticalStackLayout>
             <VerticalStackLayout Grid.Row="1" Grid.Column="1">
                 <Label Text="State/Region" Style="{StaticResource FieldLabel}" />
-                
-                    <Label FontSize="Micro"
+
+                <Label FontSize="Micro"
                                Text="{Binding EventViewModel.Address.Region}" />
 
             </VerticalStackLayout>
             <VerticalStackLayout Grid.Row="2" Grid.Column="0">
                 <Label Text="Country" Style="{StaticResource FieldLabel}" />
-                    <Label FontSize="Micro"
+                <Label FontSize="Micro"
                                Text="{Binding EventViewModel.Address.Country}" />
             </VerticalStackLayout>
             <VerticalStackLayout Grid.Row="2" Grid.Column="1">
                 <Label Text="Postal Code" Style="{StaticResource FieldLabel}" />
-                    <Label FontSize="Micro"
+                <Label FontSize="Micro"
                                Text="{Binding EventViewModel.Address.PostalCode}" />
             </VerticalStackLayout>
         </Grid>
